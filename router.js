@@ -1,24 +1,24 @@
-class Router extends Component {
+export class Router {
+  constructor(name, routes){ this.name = name; this.routes = routes}
 
-    state = {
-        path: "/home",
-    };
+  getName = () =>{
+    return this.name
+  }
+  getName = () =>{
+    return this.routes
+  }
+}
+export class Route {
+  constructor(id, route, path){ this.route = route; this.path = path, this.id = id}
 
-    render() {
+  getId = () =>{
+    return this.id
+  }
+  getRoute = () =>{
+    return this.route
+  }
+  getPath = () =>{
+    return this.path
+  }
 
-        return React.createElement("div", {}, [
-            React.createElement(
-                "button",
-                { onClick: () => this.setState({ path: "/home" }) },
-                ["Home"]
-            ),
-            React.createElement(
-                "button",
-                { onClick: () => this.setState({ path: "/about" }) },
-                ["About"]
-            ),
-            path === "/home" && React.createElement(Home),
-            path === "/about" && React.createElement(About),
-        ]);
-    }
 }
