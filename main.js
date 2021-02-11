@@ -14,3 +14,15 @@ let promise = new Promise((resolve, reject) => {
         reject('Ça fonctionne pas !');
     }
 });
+
+// Si la promise est valide
+promise.then(function(){
+    let content = document.querySelector('#root'); //on recupere notre div #root
+    if (route.getName() === 'Accueil') { //si on est sur la route Accueil => on render le composant accueil
+        reactDOM.render(AccueilComponent, content, {})
+    } else if (route.getName() === 'Api'){ //si on est sur la route Api => on render le composant Api
+        reactDOM.render(ApiComponent, content, {})
+    } else{
+        console.log('plus de route'); // si aucune des deux routes
+    }
+})
