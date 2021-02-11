@@ -1,24 +1,7 @@
-export class Router {
-  constructor(name, routes){ this.name = name; this.routes = routes}
+import { mainRouter, Route} from "./components/routingClass.js"
 
-  getName = () =>{
-    return this.name
-  }
-  getName = () =>{
-    return this.routes
-  }
-}
-export class Route {
-  constructor(id, route, path){ this.route = route; this.path = path, this.id = id}
-
-  getId = () =>{
-    return this.id
-  }
-  getRoute = () =>{
-    return this.route
-  }
-  getPath = () =>{
-    return this.path
-  }
-
-}
+//On crée deux instance de Route dans le mainRouter via la routingClass
+export var router = new mainRouter("mainRouter", [
+  new Route("Accueil", "/"),
+  new Route("Api", "/api")
+])
