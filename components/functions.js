@@ -1,4 +1,4 @@
-function prop_access(obj, str) {
+export function prop_access(obj, str) {
     if (typeof str != "string"){
         return obj;
     }
