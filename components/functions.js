@@ -21,7 +21,7 @@ export function prop_access(obj, str) {
     return propriete;
 }
 
-function type_check_v1(input, type) {
+export function type_check_v1(input, type) {
     switch (typeof input) {
         case "string":
         case "symbol":
@@ -41,24 +41,24 @@ function type_check_v1(input, type) {
             }
     }
 }
-function type_check_v2(input,type) {
-	for (key in type) {
-		switch (key) {
-			case "type":
-				if (!type_check_v1(input, type.type)) return false;
-				break;
-			case "value":
-				if(JSON.stringify(input) !== JSON.stringify(type.value)) {
+export function type_check_v2(input,type) {
+    for (key in type) {
+        switch (key) {
+            case "type":
+                if (!type_check_v1(input, type.type)) return false;
+                break;
+            case "value":
+                if(JSON.stringify(input) !== JSON.stringify(type.value)) {
                     return false;
                 };
                 break;
-			case "enum":
-				type.enum.forEach(val => {
-					if (!type_check_v2(input, { value: val })) {
-						return false;
-					}
-					return true;
-				});
+            case "enum":
+                type.enum.forEach(val => {
+                    if (!type_check_v2(input, { value: val })) {
+                        return false;
+                    }
+                    return true;
+                });
         }
     }
     return true;
