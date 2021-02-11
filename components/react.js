@@ -1,27 +1,20 @@
 import { Component } from "./component.js";
 
 function addElement(element, props, children) {
-    const addElement = document.createElement(element);
-    children.forEach(child => {
-      if (typeof child === "object") {
+    const addElement = document.createElement(element); // on crée l'élément voulu (div, a, nav)
+    children.forEach(child => { //pour chaque enfant 
+      if (typeof child === "object") { //si c'est un object alors on lui rajoute son enfant 
         addElement.appendChild(child);
       } else {
-        addElement.textContent += child;
+        addElement.textContent += child; // sinon on affiche la valeur de celui-ci
       }
     });
-    if (props != null) {
-      Object.keys(props).forEach(propertyName => {
-        if (/^on.*$/.test(propertyName)) {
-          addElement.addEventListener(
-            propertyName.substring(2).toLowerCase(),
-            props[propertyName]
-          );
-        } else {
-          addElement.setAttribute(propertyName, props[propertyName]);
-        }
+    if (props != null) { // si on a des props (class, id etc)
+      Object.keys(props).forEach(propertyName => { //on renvoie le tableau de ces props
+          addElement.setAttribute(propertyName, props[propertyName]); // on set la valeur des props
       });
     }
-    return addElement;
+    return addElement; // on return notre element
 }
 
 
@@ -35,13 +28,13 @@ function addElement(element, props, children) {
       createElement,
       Component
   }
-
+// fonction render qui va permettre d'afficher les composant en, appellent la fonction display
 export const reactDOM = {
   render: (rElement, hElement, props = {}) => {
     var prevChild = null;
-    var el = new rElement(props);
-    var prevChild = el.display();  
+    var el = new rElement(props); // on cree une nouvelle instance du composant qu'on veut render
+    var prevChild = el.display();  // on l'affiche
 
-    hElement.appendChild(prevChild);
+    hElement.appendChild(prevChild); // et on l'attache a l'élément parent div#root
   }
 };
