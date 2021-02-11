@@ -1,4 +1,6 @@
 import { NavbarComponent } from "./components/shared/navbar.js";
+import { AccueilComponent } from "./components/shared/accueil.js";
+import { ApiComponent } from "./components/shared/api.js";
 import { reactDOM } from "./components/react.js"
 import { route, router} from "./router.js"
 
