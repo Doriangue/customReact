@@ -7,7 +7,7 @@ export class ApiComponent extends Component {
     }
 
     render = () => {
-        const app = miniReact.createElement("div", {id: "main"},"test API");
-        return app;
+        const app = miniReact.createElement("div", { class: "container mt-5", id: "main"},"Bienvenue sur l'espace API du site", )
+            return app;
     }
 }

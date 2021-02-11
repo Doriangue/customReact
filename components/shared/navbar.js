@@ -20,7 +20,7 @@ export class NavbarComponent extends Component {
             return route.getName() === "Text";
         })[0];
         //creation de nos elements
-        const app = miniReact.createElement("div", null,
+        const app = miniReact.createElement("div", {class: "main"},
             miniReact.createElement("nav", {class: "navbar navbar-expand-lg navbar-light bg-dark"}, 
             miniReact.createElement("a", {class: "navbar-brand text-white text-uppercase"}, "Notre custom React"),
             miniReact.createElement("div", {class: "navbar-collapse", id: "navbarSupportedContent"},
