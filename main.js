@@ -1,6 +1,7 @@
 import { NavbarComponent } from "./components/shared/navbar.js";
 import { AccueilComponent } from "./components/shared/accueil.js";
 import { ApiComponent } from "./components/shared/api.js";
+import { TextComponent } from "./components/shared/text.js";
 import { reactDOM } from "./components/react.js"
 import { route, router} from "./router.js"
 
@@ -24,6 +25,8 @@ promise.then(function(){
         reactDOM.render(AccueilComponent, content, {})
     } else if (route.getName() === 'Api'){ //si on est sur la route Api => on render le composant Api
         reactDOM.render(ApiComponent, content, {})
+    }else if (route.getName() === 'Text'){ //si on est sur la route Api => on render le composant Api
+        reactDOM.render(TextComponent, content, {})
     } else{
         console.log('plus de route'); // si aucune des deux routes
     }
